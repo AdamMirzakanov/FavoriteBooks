@@ -37,7 +37,7 @@ class BookTableViewController: UITableViewController {
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         guard let source = segue.source as? BookFormViewController,
-            let book = source.book else {return}
+              let book = source.book else {return}
         
         if let indexPath = tableView.indexPathForSelectedRow {
             books.remove(at: indexPath.row)
