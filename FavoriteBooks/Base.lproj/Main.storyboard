@@ -16,30 +16,77 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" textLabel="p2Z-C0-yKk" detailTextLabel="pN2-5h-iWa" style="IBUITableViewCellStyleSubtitle" id="4ad-lS-rcH">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="55.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="126" id="4ad-lS-rcH" customClass="BookTableViewCell" customModule="FavoriteBooks" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="126"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ad-lS-rcH" id="3j9-d0-Icy">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="55.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="126"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p2Z-C0-yKk">
-                                            <rect key="frame" x="20" y="8.9999999999999982" width="33" height="20.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pN2-5h-iWa">
-                                            <rect key="frame" x="19.999999999999996" y="31.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-Ak-S5m">
+                                            <rect key="frame" x="20" y="11" width="350" height="104"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-Nd-plV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="88.333333333333329"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gtC-U1-7Pm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="42.666666666666664"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tittle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1t-gs-b57">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="21.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="19"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhZ-lE-qfQ">
+                                                                    <rect key="frame" x="0.0" y="21.333333333333336" width="175" height="21.333333333333336"/>
+                                                                    <fontDescription key="fontDescription" name="TimesNewRomanPS-ItalicMT" family="Times New Roman" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="iR1-Sx-9o3">
+                                                            <rect key="frame" x="175" y="0.0" width="175" height="31.333333333333332"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP9-zy-ZVS">
+                                                                    <rect key="frame" x="139" y="0.0" width="36" height="15.666666666666666"/>
+                                                                    <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldItalicMT" family="Times New Roman" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zw-bG-cDD">
+                                                                    <rect key="frame" x="135.33333333333331" y="15.666666666666668" width="39.666666666666657" height="15.666666666666668"/>
+                                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbv-9F-HCK">
+                                                    <rect key="frame" x="0.0" y="88.333333333333329" width="350" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="c0O-Ak-S5m" firstAttribute="leading" secondItem="3j9-d0-Icy" secondAttribute="leadingMargin" id="2MQ-au-5gr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="c0O-Ak-S5m" secondAttribute="bottom" id="UW7-wA-3pQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="c0O-Ak-S5m" secondAttribute="trailing" id="hOO-wy-MRT"/>
+                                        <constraint firstItem="c0O-Ak-S5m" firstAttribute="top" secondItem="3j9-d0-Icy" secondAttribute="topMargin" id="p8s-Mu-jFA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="authorLabel" destination="bhZ-lE-qfQ" id="p74-vk-Mx0"/>
+                                    <outlet property="descriptionLabel" destination="nbv-9F-HCK" id="jzI-HG-82s"/>
+                                    <outlet property="genreLabel" destination="dP9-zy-ZVS" id="SMl-1F-qoM"/>
+                                    <outlet property="lengthLabel" destination="0Zw-bG-cDD" id="0aM-CD-StB"/>
+                                    <outlet property="titleLabel" destination="N1t-gs-b57" id="5nc-v5-c9W"/>
                                     <segue destination="0Aw-vD-GNJ" kind="presentation" destinationCreationSelector="editBook:sender:" id="GV2-q7-We5"/>
                                 </connections>
                             </tableViewCell>
@@ -59,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15Z-0e-IzJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="366"/>
+            <point key="canvasLocation" x="76.92307692307692" y="365.40284360189571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T9e-ec-V32">
@@ -89,14 +136,14 @@
                             <tableViewSection headerTitle="Title" id="dxD-YG-8a8">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="V3G-7M-lkH">
-                                        <rect key="frame" x="20" y="49" width="350" height="41.333332061767578"/>
+                                        <rect key="frame" x="20" y="49" width="350" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V3G-7M-lkH" id="lf5-10-xiJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-NR-H65">
-                                                    <rect key="frame" x="20" y="10.999999999999998" width="310" height="19.333333333333329"/>
+                                                    <rect key="frame" x="20" y="11" width="310" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -114,14 +161,14 @@
                             <tableViewSection headerTitle="Author" id="ZmI-kh-EBE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="70e-vH-zwX">
-                                        <rect key="frame" x="20" y="139.99999809265137" width="350" height="41.333332061767578"/>
+                                        <rect key="frame" x="20" y="139.66666603088379" width="350" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="70e-vH-zwX" id="Rmj-eU-Lo7">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Yy-nm-LCy">
-                                                    <rect key="frame" x="20" y="10.999999999999998" width="310" height="19.333333333333329"/>
+                                                    <rect key="frame" x="20" y="11" width="310" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -139,14 +186,14 @@
                             <tableViewSection headerTitle="Genre" id="47I-8B-a6I">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PYx-wn-N4o">
-                                        <rect key="frame" x="20" y="230.99999618530273" width="350" height="41.333332061767578"/>
+                                        <rect key="frame" x="20" y="230.33333206176758" width="350" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PYx-wn-N4o" id="SJT-xl-c4O">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-nE-Wa8">
-                                                    <rect key="frame" x="20" y="10.999999999999998" width="310" height="19.333333333333329"/>
+                                                    <rect key="frame" x="20" y="11" width="310" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -164,14 +211,14 @@
                             <tableViewSection headerTitle="Length" id="LVm-13-pBW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kkZ-bI-po1">
-                                        <rect key="frame" x="20" y="321.9999942779541" width="350" height="41.333332061767578"/>
+                                        <rect key="frame" x="20" y="320.99999809265137" width="350" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kkZ-bI-po1" id="HwS-9Y-cw1">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XEY-H5-qUp">
-                                                    <rect key="frame" x="20" y="10.999999999999998" width="310" height="19.333333333333329"/>
+                                                    <rect key="frame" x="20" y="11" width="310" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -189,7 +236,7 @@
                             <tableViewSection id="Zvr-Vc-CUB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="41" id="kLy-Ua-f1C">
-                                        <rect key="frame" x="20" y="399.33332633972168" width="350" height="41"/>
+                                        <rect key="frame" x="20" y="397.99999809265137" width="350" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kLy-Ua-f1C" id="Pl6-m6-Ct4">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="41"/>
