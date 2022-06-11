@@ -36,27 +36,56 @@ class BookTableViewController: UITableViewController {
     // MARK: - Navigation
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-        guard let source = segue.source as? BookFormViewController,
-              let book = source.book else {return}
         
-        if let indexPath = tableView.indexPathForSelectedRow {
-            books.remove(at: indexPath.row)
-            books.insert(book, at: indexPath.row)
-            tableView.deselectRow(at: indexPath, animated: true)
+        
+        // проверить id перехода
+        // скастить до контроллера из которого происходит переход
+        // получить доступ к свойству book
+        guard let sourceViewController = segue.source as? BookFormTableViewController,
+              let book = sourceViewController.book else { return }
+        
+        /// если переход туда был из ячейки
+        //  получить индекс этой ячейки
+        //  перезаписать по этому индексу элемент массива
+        //  обновить ячейку по этому индексу
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            books[selectedIndexPath.row] = book
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            
+        /// если переход туда был из кнопки +
+        //  вычислить индекс новой ячейки в конце списка
+        //  добавить в массив book
+        //  добавить строку в таблицу
         } else {
+            let newIndexPath = IndexPath(row: books.count, section: 0)
             books.append(book)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
     
-    @IBSegueAction func editBook(_ coder: NSCoder, sender: Any?) -> BookFormViewController? {
+    /*
+     guard let source = segue.source as? BookFormTableViewController,
+           let book = source.book else { return }
+     
+     if let indexPath = tableView.indexPathForSelectedRow {
+         books.remove(at: indexPath.row)
+         books.insert(book, at: indexPath.row)
+         tableView.deselectRow(at: indexPath, animated: true)
+     } else {
+         books.append(book)
+     }
+     */
+    
+    
+    @IBSegueAction func editBook(_ coder: NSCoder, sender: Any?) -> BookFormTableViewController? {
         
-        guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
-            return nil
-        }
+        guard let cell = sender as? UITableViewCell,
+              let indexPath = tableView.indexPath(for: cell)
+        else { return BookFormTableViewController(coder: coder, book: nil) }
         
         let book = books[indexPath.row]
         
-        return BookFormViewController(coder: coder, book: book)
+        return BookFormTableViewController(coder: coder, book: book)
     }
     
     
